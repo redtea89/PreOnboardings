@@ -10,6 +10,9 @@ class Advertiser(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = 'advertiser_info'
+
 
 class AdvertisingData(models.Model):
     """
@@ -26,3 +29,6 @@ class AdvertisingData(models.Model):
     cv = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'advertising_data'
