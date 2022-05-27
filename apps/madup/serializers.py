@@ -18,13 +18,3 @@ class AdvertiserRUDSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['id','created_at','updated_at']
 
-
-class AnalysisViewSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = AdvertisingData
-        fields = '__all__'
-        read_only_fields = []
-        # extra_kwargs = {
-        #     'sample_field': {'write_only': True},
-        # }
