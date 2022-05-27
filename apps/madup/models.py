@@ -5,6 +5,7 @@ class Advertiser(models.Model):
     """
     광고주 데이터
     """
+    id = models.PositiveBigIntegerField(primary_key=True ,unique=True)
     name = models.CharField(max_length=30)
     email = models.EmailField(default='')
     created_at = models.DateTimeField(auto_now_add=True)
