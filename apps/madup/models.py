@@ -18,7 +18,7 @@ class AdvertisingData(models.Model):
     """
     광고주를 FK로 설정한 광고데이터
     """
-    advertiser = models.ForeignKey(Advertiser, on_delete=models.CASCADE)
+    advertiser = models.ForeignKey('Advertiser', on_delete=models.CASCADE)
     uid = models.CharField(max_length=100)
     media = models.CharField(max_length=30)
     date = models.DateField()
