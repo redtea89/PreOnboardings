@@ -1,12 +1,18 @@
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import (
-    ListCreateAPIView, RetrieveUpdateDestroyAPIView,
+    ListCreateAPIView,
+    RetrieveUpdateDestroyAPIView,
     ListAPIView
 )
 
 from .models import Advertiser, AdvertisingData
 from .filters import AnalysisFilter
 from .serializers import AdvertiserCLSerializer, AdvertiserRUDSerializer
+
+
+class AdvertiserPagination(PageNumberPagination):
+    page_size = 10
 
 
 class AdvertiserCLView(ListCreateAPIView):
@@ -16,6 +22,7 @@ class AdvertiserCLView(ListCreateAPIView):
     """
     queryset = Advertiser.objects.all()
     serializer_class = AdvertiserCLSerializer
+    pagination_class = AdvertiserPagination
 
 
 class AdvertiserRUDView(RetrieveUpdateDestroyAPIView):
@@ -37,13 +44,13 @@ class AnalysisView(ListAPIView):
     filter_backends = [AnalysisFilter]
 
     def _analyze_queryset(self, queryset):
-        """
-        Filtering한 queryset으로 
-        분석데이터 구현해야하는 지점
-        여기서 ORM을 얼마나 잘 쓰느냐에 따라 효율이 달라질 것으로 예상
-        Madup 문제의 Key point
-        시간이 좀 걸리므로 다른 작업을 진행하면서 천천히 생각해보겠음. 
-        """
+        a = 1
+        # queryset의 media 종류를 가져온다. 
+
+        # 각 미디어별로 연산을 진행한다. 
+
+        # 진행한 연산을 result = {} 의 집합으로 집어넣는다. 
+
         return 1
 
     def list(self, request, *args, **kwargs):
