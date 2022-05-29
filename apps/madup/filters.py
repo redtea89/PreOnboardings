@@ -3,8 +3,6 @@ from datetime import datetime
 from rest_framework.filters import BaseFilterBackend
 from rest_framework.exceptions import ValidationError
 
-from django.db.models import Q
-
 
 class AnalysisFilter(BaseFilterBackend):
     def _get_params(self, request):
@@ -14,9 +12,9 @@ class AnalysisFilter(BaseFilterBackend):
         if advertiser_id is None:
             raise ValidationError("advertiser_id를 입력하세요.")
         if start_date is None:
-            raise ValidationError("start_date를 입력하세요.")
+            raise ValidationError("start_date를 입력하세요. YYYY-MM-DD형식")
         if end_date is None:
-            raise ValidationError("end_date를 입력하세요.")
+            raise ValidationError("end_date를 입력하세요. YYYY-MM-DD형식")
 
         params = {
             "advertiser_id": advertiser_id,
@@ -32,9 +30,9 @@ class AnalysisFilter(BaseFilterBackend):
         start_date = datetime.strptime(params['start_date'], date_format).date()
         end_date = datetime.strptime(params['end_date'], date_format).date()
 
-        q = Q()
-        q &= Q(advertiser=params['advertiser_id'])
-        q &= Q(date__gte=start_date, date__lte=end_date)
-
-        objs = queryset.filter(q)
+        objs = queryset.filter(
+            advertiser__exact=params['advertiser_id'],
+            date__gte=start_date,
+            date__lte=end_date
+        )
         return objs
