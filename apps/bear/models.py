@@ -10,7 +10,7 @@ class Restaurant(models.Model):
     id = models.BigIntegerField(primary_key=True, unique=True)
     name = models.CharField(max_length=100)
     group = models.ForeignKey('Group', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
     address = models.CharField(max_length=250)
 
 
