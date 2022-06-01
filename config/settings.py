@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     #local
     'apps.madup',
+    'apps.bear',
     
     #third-party
     'rest_framework',
