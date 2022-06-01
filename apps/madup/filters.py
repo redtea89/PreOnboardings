@@ -6,6 +6,9 @@ from rest_framework.exceptions import ValidationError
 
 class AnalysisFilter(BaseFilterBackend):
     def _get_params(self, request):
+        """
+        Get params
+        """
         advertiser_id = request.GET.get('advertiser_id', None)
         start_date = request.GET.get('start_date', None)
         end_date = request.GET.get('end_date', None)
@@ -24,6 +27,9 @@ class AnalysisFilter(BaseFilterBackend):
         return params
 
     def filter_queryset(self, request, queryset, view):
+        """
+        param 조건으로 ORM Filtering 적용
+        """
         params = self._get_params(request)
 
         date_format = '%Y-%m-%d'
