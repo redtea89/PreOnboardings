@@ -35,29 +35,6 @@
 
 
 
-
-
-> RDB설계 및 ORM을 활용해 음식점의 기간별 데이터 분석 API 만들기
-
-#### Client's Needs
-
-- A프랜차이져 담당자는 2020년 X월 X일 ~ 2021년 Y년 Y일 동안 세종시 매장의 매출이 높은 시간이 궁금하다.
-- A프랜차이져 매니져는 2020년 9월에 어떤 결제수단이 많이 쓰였는지 궁금하다.
-- A프랜차이져 직원은 2022년 5월에 주로 몇 명의 고객들이 함께 들어오는지 궁금하다.
-
-#### 요구사항
-
-- RDB설계
-- REST API 설계
-  - 일, 월, 년 등으로 집계하여 보기
-  - 필터링
-    - 기간
-    - 가격 범위
-    - 인원수
-    - 가게 이름
-- API Documentation
-  - Swagger is better
-
 ## 기술스택
 
 <img src="https://img.shields.io/badge/django-4.0.4-blue"> <img src="https://img.shields.io/badge/DRF-3.13.1-blue"> <img src="https://img.shields.io/badge/Mariadb--blue">
