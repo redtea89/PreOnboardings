@@ -18,4 +18,5 @@ from django.urls import path, include
 urlpatterns = [
     path('api/v1/madup/', include('apps.madup.urls')),
     path('api/v1/bear/', include('apps.bear.urls')),
+    path('api/v1/human/', include('apps.human.urls')),
 ]
