@@ -49,10 +49,11 @@ class AnalysisView(ListAPIView):
         # queryset의 media 종류를 가져온다. 
         objs = queryset.values_list('media', flat=True).distinct()
         media_kind_list = []
-        for i in range(objs.count()):
+        for i, obj in enumerate(objs):
+        # for i in range(objs.count()):
             media_kind_list.append(objs[i])
 
-
+        
         # 진행한 연산을 result = {} 의 집합으로 집어넣는다. 
         analysis_datas_set = {}
         for kind in media_kind_list:
